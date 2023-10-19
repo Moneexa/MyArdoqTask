@@ -47,7 +47,7 @@ function findLowestTwo(nums: number[]): number[] {
     return [firstLowest, secondLowest]
 }
 try {
-    console.log("highest product of 3 elements in this array", threeElementsHighestProduct([-9, -8]))
+    console.log("highest product of 3 elements in this array", threeElementsHighestProduct([1, 10, 2, 6, 5, 3]))
 }
 catch (error) {
     console.error(error)
