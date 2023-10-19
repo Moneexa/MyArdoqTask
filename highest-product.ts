@@ -2,18 +2,18 @@ export function threeElementsHighestProduct(nums: number[]): number {
     if (nums.length < 3) {
         throw "Array should contain atleast 3 elements"
     }
-    const maxExtremesArr = findMaxExtremes(nums)
-    console.log("Highest three values of array", maxExtremesArr)
-    const minExtremesArr = findMinExtremes(nums)
-    console.log("Lowest Two values of array", minExtremesArr)
-    const product1 = maxExtremesArr[0] * maxExtremesArr[1] * maxExtremesArr[2];
-    const product2 = maxExtremesArr[0] * minExtremesArr[0] * minExtremesArr[1];
+    const highestThree = findHighestThree(nums)
+    console.log("Highest three values of array", highestThree)
+    const lowestTwo = findLowestTwo(nums)
+    console.log("Lowest Two values of array", lowestTwo)
+    const product1 = highestThree[0] * highestThree[1] * highestThree[2];
+    const product2 = highestThree[0] * lowestTwo[0] * lowestTwo[1];
     console.log("Product of 3 max values", product1)
     console.log("Product of 2 lowest and 1 max value", product2);
     return Math.max(product1, product2)
 };
 
-function findMaxExtremes(nums: number[]): number[] {
+function findHighestThree(nums: number[]): number[] {
     const n = nums.length
     let firstHighest = -Infinity, secondHighest = -Infinity, thirdHighest = -Infinity;
     for (let i = 0; i < n; i++) {
@@ -33,7 +33,7 @@ function findMaxExtremes(nums: number[]): number[] {
     return [firstHighest, secondHighest, thirdHighest]
 }
 
-function findMinExtremes(nums: number[]): number[] {
+function findLowestTwo(nums: number[]): number[] {
     const n = nums.length;
     let firstLowest = Infinity, secondLowest = Infinity;
     for (let i = 0; i < n; i++) {
@@ -47,10 +47,8 @@ function findMinExtremes(nums: number[]): number[] {
     return [firstLowest, secondLowest]
 }
 try {
-    console.log("highest product of 3 elements in this array", threeElementsHighestProduct([-9, -8, -9, -8, 0, 1]))
+    console.log("highest product of 3 elements in this array", threeElementsHighestProduct([-9, -8]))
 }
-//@ts-ignore
 catch (error) {
     console.error(error)
-
 }
